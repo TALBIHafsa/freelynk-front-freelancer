@@ -1,0 +1,124 @@
+.container {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-right: 60px;
+  padding-left: 60px;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 0;
+}
+
+.logo {
+  width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.main {
+  padding: 2rem 0;
+}
+
+.progressSteps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  cursor: pointer;
+  color: #777;
+}
+
+.step.active {
+  color: #2f3c7e;
+  font-weight: 500;
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #777;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.step.active .stepNumber {
+  background-color: #2f3c7e;
+  color: white;
+}
+
+.completionRate {
+  margin-left: auto;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.progressBar {
+  width: 100px;
+  height: 6px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  margin-top: 0.25rem;
+}
+
+.progress {
+  height: 100%;
+  background-color: #2f3c7e;
+  border-radius: 3px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.continueButton {
+  background-color: #2f3c7e;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.continueButton:hover {
+  background-color: #324ab0;
+}
+
+.disabledButton {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabledButton:hover {
+  background-color: #2f3c7e;
+}

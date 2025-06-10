@@ -1,0 +1,253 @@
+.professionalInfoContainer {
+  max-width: 800px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.subSectionTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.sectionDescription {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.mandatoryNote {
+  font-size: 0.85rem;
+  color: #777;
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+
+.formField {
+  margin-bottom: 2rem;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.fieldHelper {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  background-color: #fff;
+  color: #333;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #2f3c7e;
+}
+
+.selectContainer {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  appearance: none;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.2s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #2f3c7e;
+}
+
+.selectArrow {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #777;
+  pointer-events: none;
+}
+
+/* Skills section styles */
+.skillTableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #777;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+}
+
+.addSkillRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff4444;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editButton:hover {
+  background-color: #f0f0f0;
+}
+
+.addButton {
+  background-color: transparent;
+  color: #2f3c7e;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.addButton:hover {
+  background-color: #f0f2fd;
+}
+
+.grayAddButton {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 80px;
+}
+
+.grayAddButton:hover {
+  background-color: #e0e0e0;
+}
+
+/* Education section styles */
+.sectionDivider {
+  height: 1px;
+  background-color: #eee;
+  margin: 2rem 0;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.threeColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.educationItem {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.eduHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.eduDegree {
+  font-weight: 500;
+}
+
+.eduYear {
+  color: #777;
+}
+
+.eduUniversity {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Certification section styles */
+.certItem {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.certTitle {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.certDetails {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.certYearButtonRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Added for validation error message */
+.validationError {
+  color: #e53935;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}

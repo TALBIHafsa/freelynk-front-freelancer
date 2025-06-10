@@ -1,0 +1,278 @@
+.personalInfoContainer {
+  max-width: 800px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.sectionDescription {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.mandatoryNote {
+  font-size: 0.85rem;
+  color: #777;
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+
+.formField {
+  margin-bottom: 2rem;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+.privateTag {
+  font-size: 0.75rem;
+  color: #777;
+  font-weight: normal;
+  margin-left: 0.5rem;
+  font-style: italic;
+}
+
+.fieldHelper {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  color: #333;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #2f3c7e;
+}
+
+.nameInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.profileImageContainer {
+  display: flex;
+  align-items: center;
+}
+
+.profileImageUpload {
+  width: 100px;
+  height: 100px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: 1px solid #ddd;
+}
+
+.uploadIcon {
+  color: #777;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.thumbnailsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnailContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.thumbnailUpload {
+  width: 120px;
+  height: 120px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ddd;
+  transition: all 0.2s ease;
+}
+
+.thumbnailUpload:hover {
+  border-color: #2f3c7e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnailLimit {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  margin-top: 0.5rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  background-color: white;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #2f3c7e;
+}
+
+.charCount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+.minChars {
+  font-style: italic;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.selectContainer {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  appearance: none;
+  color: #333;
+  background-color: white;
+  transition: border-color 0.2s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #2f3c7e;
+}
+
+.selectArrow {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #777;
+  pointer-events: none;
+}
+
+.languageTableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #777;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.languageRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2f3c7e;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editButton:hover {
+  background-color: #f0f0f0;
+}
+
+.addButton {
+  background-color: transparent;
+  color: #2f3c7e;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.addButton:hover {
+  background-color: #f0f2fd;
+}
+
+/* New styles for validation */
+.inputError {
+  border-color: #e74c3c !important;
+}
+
+.imageError {
+  border: 2px solid #e74c3c !important;
+}
+
+.errorText {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* For the disabled continue button */
+.continueButtonDisabled {
+  background-color: #cccccc;
+  color: #888888;
+  cursor: not-allowed;
+}

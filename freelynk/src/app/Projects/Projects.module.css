@@ -1,0 +1,180 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #f3f3f3;
+  min-height: 100vh;
+  margin-top: 100px;
+}
+
+.title {
+  font-size: 28px;
+    color: #2f3c7e;
+    margin-bottom: 20px;
+    font-weight: 500px;
+}
+
+.tabsContainer {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  position: relative;
+  margin-right: 20px;
+}
+
+.activeTab {
+  color: #f2a469;
+  font-weight: 500;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #f2a469;
+  border-radius: 2px 2px 0 0;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 30px;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.searchIcon {
+  color: #888;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background-color: white;
+  padding: 12px 0;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  color: #333;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.projectCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.projectName {
+  font-size: 18px;
+  color: #f2a469;
+  margin: 0 0 5px 0;
+  font-weight: 500;
+}
+
+.projectBudget {
+  color: #555;
+  font-size: 14px;
+}
+
+.bidCount {
+  color: #3f51b5;
+  font-weight: 500;
+}
+
+.markAsDoneButton {
+  background-color: #2f3c7e;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.markAsDoneButton:hover {
+  background-color: #242e60;
+}
+
+.projectDescription {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.descriptionLabel {
+  font-weight: 450;
+  margin-bottom: 5px;
+}
+
+.descriptionText {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.viewMore {
+  color: #3f51b5;
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  color: #3f51b5;
+  font-size: 14px;
+}
+
+.skillTag {
+  margin-right: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projectHeader {
+    flex-direction: column;
+  }
+  
+  .bidCount {
+    margin-top: 10px;
+  }
+  
+  .markAsDoneButton {
+    margin-top: 10px;
+    width: 100%;
+  }
+}

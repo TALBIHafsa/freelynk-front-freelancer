@@ -1,0 +1,308 @@
+/* styles/Home.module.css */
+
+.container {
+    background-color: #e6e6e6;
+    min-height: 100vh;
+  }
+  
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 16px;
+    margin-top:100px;
+    border-radius: 8px;
+  }
+  
+  /* Profile Header Styles */
+  .profileHeader {
+    background-color: #ffffff;
+    padding: 20px 120px 0px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .profileInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0px 50px;
+  }
+  
+  .avatarContainer {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #e0e0e0;
+    margin-right: 24px;
+  }
+  
+  .avatar {
+    object-fit: cover;
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .freelancerName {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF8A00;
+    margin: 0 0 4px 0;
+  }
+  
+  .jobTitle {
+    color: #666666;
+    margin: 0 0 4px 7px;
+  }
+  
+  .ratingContainer {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 7px;
+
+  }
+  
+  .ratingScore {
+    font-size: 14px;
+    color: #333333;
+    margin-right: 8px;
+  }
+  
+  .stars {
+    display: flex;
+  }
+  
+  .star {
+    color: #FFD700;
+  }
+  
+  .contactButton {
+    background-color: #3949AB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 40px;
+  }
+  
+  .contactButton:hover {
+    background-color: #303F9F;
+  }
+  
+  /* Portfolio Slider Styles */
+  .portfolioSlider {
+    position: relative;
+    background-color: #ffffff;
+    overflow: hidden;
+    height: 700px;
+    padding:0px 50px;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease;
+  }
+  
+  .activeSlide {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .hiddenSlide {
+    opacity: 0;
+    pointer-events: none;
+  }
+ .slideImageContainer{
+    width: 90%;
+    height: 90%;
+    margin-left: 60px;
+    margin-top:50px
+}
+  
+  .slideOverlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slideContent {
+    text-align: center;
+  }
+  
+  .slideTitle {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(38, 50, 105, 0.6);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s;
+  }
+  
+  .navButton:hover {
+    background-color: rgba(38, 50, 105, 0.8);
+  }
+  
+  .prevButton {
+    left: 0px;
+  }
+  
+  .nextButton {
+    right: 8px;
+  }
+  
+  /* Services Banner Styles */
+  .servicesBanner {
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+  
+  .bannerImageContainer {
+    position: relative;
+    width: 100%;
+    height: 160px;
+  }
+  
+  .orderButtonContainer {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+  }
+  
+  .orderButton {
+    background-color: #D32F2F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .serviceIcons {
+    position: absolute;
+    right: 32px;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .iconCircleBlue {
+    width: 48px;
+    height: 48px;
+    background-color: #2196F3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .iconCircleDarkBlue {
+    width: 40px;
+    height: 40px;
+    background-color: #1565C0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .iconText {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .linkIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* About Section Styles */
+  .aboutSection {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 0px 110px;
+    height: 300px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 16px 0;
+  }
+  
+  .projectDescription {
+    margin-bottom: 24px;
+  }
+  
+  .descriptionTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666666;
+    margin: 10px 0 8px 0;
+  }
+  
+  .descriptionText {
+    color: #333333;
+    line-height: 1.6;
+    margin: 15px 0px;
+  }
+  
+  .viewMore {
+    color: #2196F3;
+    cursor: pointer;
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    .profileHeader {
+      flex-direction: row;
+    }
+    
+    .profileInfo {
+      margin-bottom: 0;
+    }
+    
+    .portfolioSlider {
+      height: 700px;
+    }
+    
+    .slideTitle {
+      font-size: 42px;
+    }
+  }

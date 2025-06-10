@@ -1,0 +1,316 @@
+
+  
+  
+ 
+  .searchContainer {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+  }
+  
+  .searchIcon {
+    color: #888;
+    margin-right: 10px;
+    background-color: white;
+  }
+  
+  .searchInput {
+    flex: 1;
+    border: none;
+    background-color: white;
+    padding: 12px 0;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+    color: #333;
+  }
+  
+  .contentWrapper {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .filtersContainer {
+    width: 270px;
+    flex-shrink: 0;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .filtersHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 5px;
+  }
+  
+  .filtersTitle {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .filterSection {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+  }
+  
+  .filterSection:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .filterSectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .filterSectionTitle {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+    color: #333;
+  }
+  
+  .clearButton {
+    background: none;
+    border: none;
+    color: #3f51b5;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+  }
+  
+  .checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+    
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    background-color: white;
+  }
+  .checkboxLabel input[type="checkbox"] {
+    appearance: checkbox;
+    accent-color: white; 
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  
+  .checkboxLabel input {
+    accent-color: white; 
+    appearance: checkbox;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+    background-color: white;
+
+  }
+  
+  .checkboxLabel input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkboxLabel input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+  
+  .priceRangeInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .priceInputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .priceLabel {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .currencyInputWrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .currencySymbol {
+    padding: 0 8px;
+    background-color: white;
+    color: #555;
+    display: flex;
+    align-items: center;
+  }
+  
+  .priceInput {
+    flex: 1;
+    border: none;
+    padding: 8px 0px;
+    font-size: 13px;
+    outline: none;
+    background-color: white;
+    color: #333;
+  }
+  
+  .currencyUnit {
+    padding: 0 8px;;
+    color: #555;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+  }
+  
+  .projectsContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .projectCard {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .projectHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .projectName {
+    font-size: 18px;
+    color: #f2a469;
+    margin: 0 0 5px 0;
+    font-weight: 500;
+  }
+  
+  .projectBudget {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .bidCount {
+    color: #3f51b5;
+    font-weight: 500;
+    margin-right: 30px;
+  }
+  
+  .projectDescription {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .descriptionLabel {
+    font-weight: 450;
+    margin-bottom: 5px;
+  }
+  
+  .descriptionText {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .viewMore {
+    color: #3f51b5;
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    color: #3f51b5;
+    font-size: 14px;
+  }
+  
+  .skillTag {
+    margin-right: 5px;
+  }
+  
+  .bookmarkContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .bookmarkButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: #888;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .contentWrapper {
+      flex-direction: column;
+    }
+    
+    .filtersContainer {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projectHeader {
+      flex-direction: column;
+    }
+    
+    .bidCount {
+      margin-top: 10px;
+    }
+  }

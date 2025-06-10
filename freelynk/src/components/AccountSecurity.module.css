@@ -1,0 +1,136 @@
+.accountSecurityContainer {
+  max-width: 800px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.sectionDescription {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.formField {
+  margin-bottom: 2rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.labelIcon {
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: #777;
+}
+
+.privateTag {
+  font-size: 0.75rem;
+  color: #777;
+  font-weight: normal;
+  margin-left: 0.5rem;
+  font-style: italic;
+}
+
+.requiredField {
+  color: #e53e3e;
+  margin-left: 4px;
+}
+
+.fieldHelper {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  background-color: #fff;
+  color: #333;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #2f3c7e;
+}
+
+.inputError {
+  border-color: #e53e3e;
+}
+
+.passwordContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordInputWrapper {
+  position: relative;
+}
+
+.togglePasswordButton {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #777;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.togglePasswordButton:hover {
+  color: #333;
+}
+
+.errorText {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.addPhoneButton {
+  background-color: transparent;
+  color: #2f3c7e;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.addPhoneButton:hover {
+  background-color: #f0f2fd;
+}
+
+@media (max-width: 768px) {
+  .passwordContainer {
+    grid-template-columns: 1fr;
+  }
+}
