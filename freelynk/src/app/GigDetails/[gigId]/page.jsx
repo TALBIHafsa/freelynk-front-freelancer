@@ -8,13 +8,14 @@ import NavBar from '../../../components/navbar2/Navbar';
 
 export default function GigDetails() {
   const params = useParams();
-  const id = params.gigId; // Get gig ID from URL parameters
+  const id = params.gigId;
   
   const [gig, setGig] = useState(null);
   const [freelancer, setFreelancer] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   // Fetch gig data
   useEffect(() => {
@@ -99,31 +100,31 @@ export default function GigDetails() {
     const hasHalfStar = rating % 1 !== 0;
     
     for (let i = 0; i < fullStars; i++) {
-      stars.push('★');
+      stars.push(
+        <span key={`full-${i}`} className={styles.starFilled}>★</span>
+      );
     }
     if (hasHalfStar) {
-      stars.push('☆');
+      stars.push(
+        <span key="half" className={styles.starHalf}>★</span>
+      );
     }
     while (stars.length < 5) {
-      stars.push('☆');
+      stars.push(
+        <span key={`empty-${stars.length}`} className={styles.starEmpty}>☆</span>
+      );
     }
     
-    return stars.join('');
+    return stars;
   };
 
   if (loading) {
     return (
-      <div>
+      <div className={styles.container}>
         <NavBar />
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '50vh',
-          fontSize: '18px',
-          color: '#666'
-        }}>
-          Loading gig details...
+        <div className={styles.loadingContainer}>
+          <div className={styles.loadingSpinner}></div>
+          <p className={styles.loadingText}>Loading gig details...</p>
         </div>
       </div>
     );
@@ -131,17 +132,15 @@ export default function GigDetails() {
 
   if (error) {
     return (
-      <div>
+      <div className={styles.container}>
         <NavBar />
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '50vh',
-          fontSize: '18px',
-          color: '#ff6b6b'
-        }}>
-          Error: {error}
+        <div className={styles.errorContainer}>
+          <div className={styles.errorIcon}>⚠️</div>
+          <h2 className={styles.errorTitle}>Oops! Something went wrong</h2>
+          <p className={styles.errorText}>{error}</p>
+          <button className={styles.retryButton} onClick={() => window.location.reload()}>
+            Try Again
+          </button>
         </div>
       </div>
     );
@@ -149,21 +148,20 @@ export default function GigDetails() {
 
   if (!gig) {
     return (
-      <div>
+      <div className={styles.container}>
         <NavBar />
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '50vh',
-          fontSize: '18px',
-          color: '#666'
-        }}>
-          No gig data found
+        <div className={styles.noDataContainer}>
+          <div className={styles.noDataIcon}>📋</div>
+          <h2 className={styles.noDataTitle}>No gig found</h2>
+          <p className={styles.noDataText}>The gig you're looking for doesn't exist or has been removed.</p>
         </div>
       </div>
     );
   }
+
+  const truncatedDescription = gig.description?.length > 200 
+    ? gig.description.substring(0, 200) + "..."
+    : gig.description;
 
   return (
     <div className={styles.container}>
@@ -175,163 +173,151 @@ export default function GigDetails() {
       </Head>
 
       <main className={styles.main}>
-        <div style={{borderRadius:"8px"}}>
-          <div style={{backgroundColor:"white",color:"#2f3c7e",fontSize:"35px",padding:"30px"}}>
-            <p style={{marginLeft:"30px",fontWeight:"700"}}>{gig.title}</p>
+        <div className={styles.contentWrapper}>
+          {/* Hero Section */}
+          <div className={styles.heroSection}>
+            <div className={styles.heroContent}>
+              
+              <h1 className={styles.gigTitle}>{gig.title}</h1>
+              
+            </div>
           </div>
 
-          <div className={styles.profileHeader}>
-            <div className={styles.profileInfo}>
-              <div className={styles.avatarContainer}>
-                {freelancer?.profileImage ? (
-                  <img 
-                    src={freelancer.profileImage} 
-                    alt="Freelancer Avatar" 
-                    width={80} 
-                    height={80}
-                    className={styles.avatar}
-                    style={{
-                      width: '80px',
-                      height: '80px',
-                      borderRadius: '50%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                ) : (
-                  <div
-                    style={{
-                      width: '80px',
-                      height: '80px',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      fontSize: '24px',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    {freelancer ? `${freelancer.firstName?.[0] || ''}${freelancer.lastName?.[0] || ''}` : '?'}
-                  </div>
-                )}
-              </div>
-              <div className={styles.userInfo}>
-                <h1 className={styles.freelancerName}>
-                  {freelancer ? `${freelancer.firstName} ${freelancer.lastName}` : 'Loading...'}
-                </h1>
-                <p className={styles.jobTitle}>{freelancer?.occupation || 'Freelancer'}</p>
-                <div className={styles.ratingContainer}>
-                  <p className={styles.ratingScore}>({freelancer?.rating || 0})</p>
-                  <div className={styles.stars}>
-                    <span style={{ color: "#f0c420" }}>
-                      {renderStars(freelancer?.rating || 0)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <button className={styles.contactButton}>
-              View Profil
-            </button>
-          </div>
-
-          {portfolioItems.length > 0 && (
-            <div className={styles.portfolioSlider}>
-              {portfolioItems.map((item, index) => (
-                <div 
-                  key={item.id}
-                  className={`${styles.slide} ${
-                    index === currentSlide ? styles.activeSlide : styles.hiddenSlide
-                  }`}
-                >
-                  <div className={styles.slideImageContainer}>
-                    <img 
-                      style={{width:"100%",height:"100%",objectFit:"cover"}} 
-                      src={item.image}
-                      alt={`Gig image ${index + 1}`}
-                    />
-                  </div>
-                </div>
-              ))}
-              
-              {portfolioItems.length > 1 && (
-                <>
-                  <button 
-                    onClick={prevSlide}
-                    className={`${styles.navButton} ${styles.prevButton}`}
-                    aria-label="Previous slide"
-                  >
-                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button 
-                    onClick={nextSlide}
-                    className={`${styles.navButton} ${styles.nextButton}`}
-                    aria-label="Next slide"
-                  >
-                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </>
-              )}
-            </div>
-          )}
-
-          <div className={styles.aboutSection}>
-            <h2 className={styles.sectionTitle}>About this gig</h2>
-            <div className={styles.projectDescription}>
-              <p className={styles.descriptionText}>
-                {gig.description}
-              </p>
-              
-              {/* Additional gig details */}
-              <div style={{ marginTop: '20px' }}>
-                
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-                  {gig.price && (
-                    <div>
-                      <span style={{ fontWeight: '600', color: '#f2a469' }}>Price: </span>
-                      <span>${gig.price}</span>
-                    </div>
-                  )}
-                  {gig.deliveryTime && (
-                    <div>
-                      <span style={{ fontWeight: '600', color: '#f2a469' }}>Delivery Time: </span>
-                      <span>{gig.deliveryTime} days</span>
-                    </div>
-                  )}
-                  {gig.category && (
-                    <div>
-                      <span style={{ fontWeight: '600', color: '#f2a469' }}>Category: </span>
-                      <span>{gig.category}</span>
-                    </div>
-                  )}
-                </div>
-                
-                {/* Skills/Tags if available */}
-                {gig.tags && gig.tags.length > 0 && (
-                  <div style={{ marginTop: '15px' }}>
-                    <h4 style={{ color: '#2f3c7e', fontSize: '16px', fontWeight: '600', marginBottom: '10px' }}>
-                      Tags
-                    </h4>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                      {gig.tags.map((tag, index) => (
-                        <span
-                          key={index}
-                          style={{
-                            backgroundColor: '#f0f0f0',
-                            color: '#333',
-                            padding: '4px 12px',
-                            borderRadius: '15px',
-                            fontSize: '12px',
-                            border: '1px solid #ddd'
-                          }}
+          {/* Main Content Grid */}
+          <div className={styles.contentGrid}>
+            {/* Left Column */}
+            <div className={styles.leftColumn}>
+              {/* Portfolio Slider */}
+              {portfolioItems.length > 0 && (
+                <div className={styles.portfolioSlider}>
+                  <div className={styles.sliderContainer}>
+                    {portfolioItems.map((item, index) => (
+                      <div 
+                        key={item.id}
+                        className={`${styles.slide} ${
+                          index === currentSlide ? styles.activeSlide : styles.hiddenSlide
+                        }`}
+                      >
+                        <div className={styles.slideImageContainer}>
+                          <img 
+                            src={item.image}
+                            alt={`Gig portfolio ${index + 1}`}
+                            className={styles.slideImage}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                    
+                    {portfolioItems.length > 1 && (
+                      <>
+                        <button 
+                          onClick={prevSlide}
+                          className={`${styles.navButton} ${styles.prevButton}`}
+                          aria-label="Previous slide"
                         >
+                          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <button 
+                          onClick={nextSlide}
+                          className={`${styles.navButton} ${styles.nextButton}`}
+                          aria-label="Next slide"
+                        >
+                          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </>
+                    )}
+                    
+                    {/* Slide Indicators */}
+                    {portfolioItems.length > 1 && (
+                      <div className={styles.slideIndicators}>
+                        {portfolioItems.map((_, index) => (
+                          <button
+                            key={index}
+                            className={`${styles.indicator} ${
+                              index === currentSlide ? styles.activeIndicator : ''
+                            }`}
+                            onClick={() => setCurrentSlide(index)}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              
+            </div>
+
+            {/* Right Column */}
+            <div className={styles.rightColumn}>
+              {/* Freelancer Card */}
+              <div className={styles.freelancerCard}>
+                <div className={styles.freelancerHeader}>
+                  <div className={styles.avatarContainer}>
+                    {freelancer?.profileImage ? (
+                      <img 
+                        src={freelancer.profileImage} 
+                        alt="Freelancer Avatar" 
+                        className={styles.avatar}
+                      />
+                    ) : (
+                      <div className={styles.avatarPlaceholder}>
+                        {freelancer ? `${freelancer.firstName?.[0] || ''}${freelancer.lastName?.[0] || ''}` : '?'}
+                      </div>
+                    )}
+                    <div className={styles.onlineIndicator}></div>
+                  </div>
+                  <div className={styles.freelancerInfo}>
+                    <h3 className={styles.freelancerName}>
+                      {freelancer ? `${freelancer.firstName} ${freelancer.lastName}` : 'Loading...'}
+                    </h3>
+                    <p className={styles.jobTitle}>{freelancer?.occupation || 'Freelancer'}</p>
+                    <div className={styles.ratingContainer}>
+                      <div className={styles.stars}>
+                        {renderStars(freelancer?.rating || 0)}
+                      </div>
+                      <span className={styles.ratingScore}>({freelancer?.rating || 0})</span>
+                    </div>
+                  </div>
+                </div>
+                
+                
+
+                <button className={styles.contactButton}>
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  View Profile
+                </button>
+              </div>
+              {/* About Section */}
+              <div className={styles.aboutSection}>
+                <h2 className={styles.sectionTitle}>About this gig</h2>
+                <div className={styles.descriptionContainer}>
+                  <p className={styles.descriptionText}>
+                    {showFullDescription ? gig.description : truncatedDescription}
+                  </p>
+                  {gig.description?.length > 200 && (
+                    <button 
+                      className={styles.toggleButton}
+                      onClick={() => setShowFullDescription(!showFullDescription)}
+                    >
+                      {showFullDescription ? 'Show Less' : 'Read More'}
+                    </button>
+                  )}
+                </div>
+
+                {/* Tags */}
+                {gig.tags && gig.tags.length > 0 && (
+                  <div className={styles.tagsSection}>
+                    <h4 className={styles.tagsTitle}>Skills & Expertise</h4>
+                    <div className={styles.tagsContainer}>
+                      {gig.tags.map((tag, index) => (
+                        <span key={index} className={styles.tag}>
                           {tag}
                         </span>
                       ))}
@@ -339,6 +325,56 @@ export default function GigDetails() {
                   </div>
                 )}
               </div>
+              {/* Package Details */}
+              {/* <div className={styles.packageCard}>
+                <h3 className={styles.packageTitle}>Package Details</h3>
+                <div className={styles.packageInfo}>
+                  {gig.price && (
+                    <div className={styles.packageItem}>
+                      <span className={styles.packageLabel}>Price</span>
+                      <span className={styles.packageValue}>${gig.price}</span>
+                    </div>
+                  )}
+                  {gig.deliveryTime && (
+                    <div className={styles.packageItem}>
+                      <span className={styles.packageLabel}>Delivery Time</span>
+                      <span className={styles.packageValue}>{gig.deliveryTime} days</span>
+                    </div>
+                  )}
+                  <div className={styles.packageItem}>
+                    <span className={styles.packageLabel}>Revisions</span>
+                    <span className={styles.packageValue}>3 included</span>
+                  </div>
+                </div>
+                
+                <div className={styles.packageFeatures}>
+                  <div className={styles.feature}>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Source file included</span>
+                  </div>
+                  <div className={styles.feature}>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Commercial use</span>
+                  </div>
+                  <div className={styles.feature}>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>24/7 Support</span>
+                  </div>
+                </div>
+
+                <button className={styles.orderButton}>
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 8L4 6H2m5 7v6a1 1 0 001 1h10a1 1 0 001-1v-6m-9 0h8" />
+                  </svg>
+                  Order Now
+                </button>
+              </div> */}
             </div>
           </div>
         </div>
