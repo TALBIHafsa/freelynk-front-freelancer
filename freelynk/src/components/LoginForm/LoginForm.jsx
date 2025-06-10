@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./signin.module.css";
-import ResetPassword from "../ResetPassword/ResetPassword";
+import ResetPassword from "../forgotPassword/forgotPassword";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm({ onClose }) {

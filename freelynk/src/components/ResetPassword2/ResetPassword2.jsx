@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import styles from "../LoginForm/signin.module.css";
+import ResetPassword from "../forgotPassword/forgotPassword";
 
-export default function ResetPassword2({ email, onClose }) {
+export default function ResetPassword2({ email, onClose, onBackToEmail }) {
+  
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.signUpModal} style={{height:"230px", width: "500px"}}>
@@ -14,7 +16,10 @@ export default function ResetPassword2({ email, onClose }) {
         
         <div style={{textAlign:"center", margin: "0 auto", padding: "0 20px"}}>
             <p>An email has been sent to "{email}". If this email address is registered to FreeLynk.ma, you'll receive instructions on how to set a new password.</p>
-            <p style={{marginTop:"20px", color:"#2d3a8c", cursor: "pointer"}}>
+            <p 
+              style={{marginTop:"20px", color:"#2d3a8c", cursor: "pointer"}}
+              onClick={onBackToEmail}
+            >
               <u>Didn't get an email?</u>
             </p>
         </div>
