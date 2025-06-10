@@ -232,8 +232,9 @@ export default function GigDetails() {
                 </div>
               </div>
             </div>
+            
             <button className={styles.contactButton}>
-              Contact Me
+              View Profil
             </button>
           </div>
 
@@ -284,16 +285,13 @@ export default function GigDetails() {
           <div className={styles.aboutSection}>
             <h2 className={styles.sectionTitle}>About this gig</h2>
             <div className={styles.projectDescription}>
-              <h3 className={styles.descriptionTitle}>Project description</h3>
               <p className={styles.descriptionText}>
                 {gig.description}
               </p>
               
               {/* Additional gig details */}
               <div style={{ marginTop: '20px' }}>
-                <h4 style={{ color: '#2f3c7e', fontSize: '16px', fontWeight: '600', marginBottom: '10px' }}>
-                  Gig Details
-                </h4>
+                
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                   {gig.price && (
                     <div>

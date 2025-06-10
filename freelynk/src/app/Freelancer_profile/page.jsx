@@ -740,9 +740,11 @@ const Section = ({ gigs }) => (
       scrollbarWidth: "none"
     }}>
       {gigs?.map(gig => (
-        <div key={gig.gig_id} style={{ width: "300px", flexShrink: 0 }}>
-          <GigCard key={gig.gig_id} gig={gig} />
-        </div>
+        <Link key={gig.gig_id} href={`/GigDetails/${gig.gig_id}`}>
+          <div style={{ width: "300px", flexShrink: 0 }}>
+            <GigCard gig={gig} />
+          </div>
+        </Link>
       ))}
     </div>
   </div>
