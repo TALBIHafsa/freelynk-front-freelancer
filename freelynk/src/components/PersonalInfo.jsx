@@ -184,7 +184,7 @@ export default function PersonalInfo({ onValidationChange, onDataChange, initial
 
       <div className={styles.formField}>
         <label className={styles.label}>
-          Full Name* <span className={styles.privateTag}>Private</span>
+          Full Name* 
         </label>
         <p className={styles.fieldHelper}>Ex. John Smith</p>
         <div className={styles.nameInputs}>

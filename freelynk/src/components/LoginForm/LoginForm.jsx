@@ -48,7 +48,7 @@ export default function LoginForm({ onClose }) {
             }
 
             if (!res.ok) {
-                setError(data.message || "Login failed");
+                setError(data.message || "Wrong email or password");
                 return;
             }
 

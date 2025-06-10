@@ -25,19 +25,36 @@ export default function ProjectsFiltered() {
     setFreelancerEmail(email);
   }, []);
 
-  // Fetch projects when component mounts
+  // Fetch recommended projects when freelancerEmail is available
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchRecommendedProjects = async () => {
+      if (!freelancerEmail) return;
+      
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects`);
+        // Use the new recommended endpoint
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/recommended/${encodeURIComponent(freelancerEmail)}`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch recommended projects');
+        }
+        
         const data = await response.json();
         setProjects(data);
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error('Error fetching recommended projects:', error);
+        // Fallback to regular projects if recommended fails
+        try {
+          const fallbackResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects`);
+          const fallbackData = await fallbackResponse.json();
+          setProjects(fallbackData);
+        } catch (fallbackError) {
+          console.error('Error fetching fallback projects:', fallbackError);
+        }
       }
     };
-    fetchProjects();
-  }, []);
+
+    fetchRecommendedProjects();
+  }, [freelancerEmail]);
 
   // Fetch saved projects status when both projects and freelancerEmail are available
   useEffect(() => {
@@ -179,15 +196,14 @@ export default function ProjectsFiltered() {
 
               <div className={styles.skills}>
                 {(Array.isArray(project.requiredSkills) 
-  ? project.requiredSkills 
-  : JSON.parse(project.requiredSkills || "[]")
-).map((skill, index, arr) => (
-  <span key={index} className={styles.skillTag}>
-    {skill}
-    {index < arr.length - 1 && ' • '}
-  </span>
-))}
-
+                  ? project.requiredSkills 
+                  : JSON.parse(project.requiredSkills || "[]")
+                ).map((skill, index, arr) => (
+                  <span key={index} className={styles.skillTag}>
+                    {skill}
+                    {index < arr.length - 1 && ' • '}
+                  </span>
+                ))}
               </div>
 
               <div className={styles.bookmarkContainer}>
