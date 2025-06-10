@@ -153,6 +153,7 @@ export default function ProfilePage() {
       <header className={styles.header}>
         <img src='/images/image.png' className={styles.logo} alt="Logo" />
       </header>
+            <div className={styles.componentsContainer}>
       
       <PersonalInfo 
         onValidationChange={(isValid) => handleValidationChange('personalInfo', isValid)}
@@ -187,6 +188,16 @@ export default function ProfilePage() {
           phone: formData.phone
         }}
       />
+      </div>
+      <div className={styles.buttonContainer}>
+        <button 
+          className={`${styles.continueButton} ${!isFormValid ? styles.disabled : ''}`}
+          onClick={handleSubmit}
+          disabled={!isFormValid || isSubmitting}
+        >
+          {isSubmitting ? 'Creating Account...' : 'Continue'}
+        </button>
+      </div>
       
       {/* Debug information - remove in production */}
       {/* <div style={{ padding: '10px', background: '#f0f0f0', margin: '10px 0', fontSize: '12px' }}>
@@ -210,15 +221,7 @@ export default function ProfilePage() {
         </div>
       )}
       
-      <div className={styles.buttonContainer}>
-        <button 
-          className={`${styles.continueButton} ${!isFormValid ? styles.disabled : ''}`}
-          onClick={handleSubmit}
-          disabled={!isFormValid || isSubmitting}
-        >
-          {isSubmitting ? 'Creating Account...' : 'Continue'}
-        </button>
-      </div>
+      
     </div>
   );
 }
