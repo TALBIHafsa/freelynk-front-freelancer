@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 import styles from "../LoginForm/signin.module.css";
-import ResetPassword2 from "../ResetPassword2/ResetPassword2"; // Import the second step component
+import ResetPassword2 from "../ResetPassword2/ResetPassword2";
 
 export default function ResetPassword({ onClose }) {
   const [formData, setFormData] = useState({
     email: "",
   });
   
-  const [showNextStep, setShowNextStep] = useState(false); // State to control which modal to show
-  
+  const [showNextStep, setShowNextStep] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData(prev => ({
@@ -18,14 +20,39 @@ export default function ResetPassword({ onClose }) {
       [id]: value
     }));
   };
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Reset password form submitted:", formData);
-    setShowNextStep(true); // Show the next modal when form is submitted
+
+  const checkEmailExists = async (email) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/email/${encodeURIComponent(email)}`);
+      if (response.ok) {
+        return true;
+      } else if (response.status === 404) {
+        return false;
+      } else {
+        throw new Error("Failed to check email");
+      }
+    } catch (err) {
+      setError("An error occurred while checking your email. Please try again.");
+      console.error("Error checking email:", err);
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  // If showing next step, return that component instead
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const emailExists = await checkEmailExists(formData.email);
+    
+    if (emailExists) {
+      setShowNextStep(true);
+    } else {
+      alert("This email is not registered. Please sign up first.");
+    }
+  };
+
   if (showNextStep) {
     return <ResetPassword2 email={formData.email} onClose={onClose} />;
   }
@@ -53,9 +80,14 @@ export default function ResetPassword({ onClose }) {
             />
           </div>
 
-          <button type="submit" className={styles.signUpButton}>
-            Next
+          <button 
+            type="submit" 
+            className={styles.signUpButton}
+            disabled={isLoading}
+          >
+            {isLoading ? "Checking..." : "Next"}
           </button>
+          {error && <p className={styles.errorMessage}>{error}</p>}
         </form>
       </div>
     </div>
