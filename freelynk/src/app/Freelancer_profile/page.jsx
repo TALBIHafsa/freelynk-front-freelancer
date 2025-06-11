@@ -14,14 +14,10 @@ export default function FreelancerProfile() {
 
 useEffect(() => {
   setLoading(true);
-  const token = localStorage.getItem("token");
-    if (token) {
+  const freelancerId = localStorage.getItem("freelancerId");
+    if (freelancerId) {
 
-  fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gigs/myGigs`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
+  fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gigs/freelancers/${freelancerId}`)
     .then((res) => {
       if (!res.ok) {
         throw new Error("gigs not found");
