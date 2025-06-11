@@ -1,6 +1,6 @@
 "use client"
 
-import NavBar from '@/components/NavBar';
+import NavBar from '@/components/navbar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import styles from './Home.module.css';
 import Link from 'next/link';
@@ -87,7 +87,7 @@ export default function Home() {
             >
               Sign Up (client)
             </button>
-            <Link href="/signup-freelancer/ProfilePage" passHref>
+            <Link href="/signup-freelancer" passHref>
               <button className={styles.freelancerButton}>
                 Sign Up (freelancer)
               </button>

@@ -1,6 +1,6 @@
 
 import Head from 'next/head';
-import NavBar from '../../components/navbar2/Navbar';
+import NavBar from '../../components/navbar_freelancer/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 export default function TC() {

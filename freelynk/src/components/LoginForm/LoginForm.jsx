@@ -60,7 +60,7 @@ export default function LoginForm({ onClose }) {
             // Fetch and store user ID based on role
             if (data.role === "FREELANCER") {
                 await fetchFreelancerData(data.email);
-                router.push("/Home_Freelancer");
+                router.push("/Freelancer/home");
             } else if (data.role === "CLIENT") {
                 await fetchClientData(data.email);
                 router.push("/home_client");
@@ -182,16 +182,8 @@ export default function LoginForm({ onClose }) {
                         Sign In
                     </button>
 
-                    <div className={styles.divider}>
-                        <span className={styles.dividerLine}></span>
-                        <span className={styles.dividerText}>or</span>
-                        <span className={styles.dividerLine}></span>
-                    </div>
 
-                    <button type="button" className={styles.googleButton}>
-                        <img src="assets/image.png" style={{ height: "18px", width: "18px" }} />
-                        Continue with google
-                    </button>
+                
                 </form>
             </div>
         </div>
