@@ -17,17 +17,44 @@ export default function ProfessionalInfo({ onValidationChange, onDataChange, ini
   const [newSkill, setNewSkill] = useState('');
 
   const occupationOptions = useMemo(() => [
-    'Graphics & Design',
-    'Web Development',
+    'Web and App Development',
+    'Graphic & UI/UX design',
+    'Writing and translation',
     'Digital Marketing',
-    'Writing & Translation',
-    'Video & Animation',
-    'Music & Audio',
-    'Programming & Tech',
-    'Business',
-    'Data'
+    'Video & Animation Services',
+    'Business & Virtual Assistance'
+    
   ], []);
+/*Choose a category
+Web and App development
+Web and App development
+Build custom websites, web apps, and mobile solutions tailored to your needs.
 
+Graphic & UI/UX design
+Graphic & UI/UX design
+Create eye-catching visuals and user-friendly designs that elevate your brand.
+
+Writing and translation
+Writing and translation
+Get professional content, from blog posts to accurate translations and edits.
+
+Digital Marketing
+Digital Marketing
+Boost your online presence with targeted strategies and optimized campaigns.
+
+Video & Animation Services
+Video & Animation Services
+Engage your audience with creative videos, animations, and editing services.
+
+Business & Virtual Assistance
+Business & Virtual Assistance
+Streamline your operations with expert support in admin, research, and more.
+
+
+Connect with top talent
+for any job, instantly online.
+
+Terms and Conditions*/
   const currentData = useMemo(() => ({
     occupation,
     skills

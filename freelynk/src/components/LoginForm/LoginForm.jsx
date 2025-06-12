@@ -56,6 +56,8 @@ export default function LoginForm({ onClose }) {
             localStorage.setItem("token", data.accessToken);
             localStorage.setItem("role", data.role);
             localStorage.setItem("email", data.email);
+             localStorage.setItem("clientName", data.firstName); 
+
 
             // Fetch and store user ID based on role
             if (data.role === "FREELANCER") {
@@ -63,7 +65,7 @@ export default function LoginForm({ onClose }) {
                 router.push("/Freelancer/home");
             } else if (data.role === "CLIENT") {
                 await fetchClientData(data.email);
-                router.push("/home_client");
+                router.push("/client/home_client");
             } else {
                 router.push("/");
             }
@@ -105,7 +107,7 @@ export default function LoginForm({ onClose }) {
                 throw new Error('Invalid response format. Expected JSON.');
             }
             const data = await response.json();
-            localStorage.setItem("clientId", data.id);
+            localStorage.setItem("clientEmail",data.email);
         } catch (error) {
             console.error('Error fetching client data:', error);
         }

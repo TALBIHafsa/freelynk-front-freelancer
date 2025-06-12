@@ -37,7 +37,7 @@ export default function NavBar() {
         setRole(savedRole);
     }, []);
 
-    const homeLink = role === "FREELANCER" ? "/Freelancer/home" : "/home_client";
+    const homeLink = role === "FREELANCER" ? "/Freelancer/home" : "/client/home_client";
     const profile = role === "FREELANCER" ? "/Freelancer/profile" : "/Client_profile";
     const saved = role === "FREELANCER" ? "/Freelancer/SavedProjects" : "/Freelancer/SavedFreelancers";
 
