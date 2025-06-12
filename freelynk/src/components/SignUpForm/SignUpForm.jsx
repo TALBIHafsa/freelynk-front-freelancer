@@ -314,12 +314,7 @@ onClose();
             Sign Up
           </button>
 
-          <div className={styles.divider}>
-            <span className={styles.dividerLine}></span>
-            <span className={styles.dividerText}>or</span>
-            <span className={styles.dividerLine}></span>
-          </div>
-
+          
         
 
           <p className={styles.termsText}>

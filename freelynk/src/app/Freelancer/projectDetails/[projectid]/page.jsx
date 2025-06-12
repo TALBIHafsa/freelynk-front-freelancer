@@ -513,6 +513,7 @@ export default function ProjectDetailsFreelancer() {
                 <label>Enter your motivation</label>
                 <textarea
                   name="motivation"
+                  maxLength={200}
                   value={bidForm.motivation}
                   onChange={handleInputChange}
                   className={styles.textareaInput}

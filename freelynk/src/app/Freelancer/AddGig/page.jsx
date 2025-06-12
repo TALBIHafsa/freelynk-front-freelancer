@@ -160,12 +160,12 @@ export default function AddGig() {
               name="gigDescription"
               value={formData.gigDescription}
               onChange={handleInputChange}
-              maxLength={700}
+              maxLength={255}
               rows={8}
               required
             />
             <div className="character-count">
-              {descriptionLength}/700
+              {descriptionLength}/255
             </div>
           </div>
           

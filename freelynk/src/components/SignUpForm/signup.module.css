@@ -17,7 +17,22 @@
   z-index: 1000;
   padding: 20px;
 }
+.errorInput {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 1px #e53e3e !important;
+}
 
+.errorText {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 1rem;
+}
 .signUpModal {
   background-color: white;
   border-radius: 10px;

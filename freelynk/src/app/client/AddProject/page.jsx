@@ -161,11 +161,12 @@ const AddProject = () => {
               value={project.description}
               onChange={handleChange}
               minLength={100}
+              maxLength={255}
               rows={5}
             ></textarea>
             <div className="character-count">
               <span>min. 100 characters</span>
-              <span>{project.description.length}/700</span>
+              <span>{project.description.length}/255</span>
             </div>
           </div>
 

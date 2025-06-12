@@ -81,7 +81,7 @@ const FreelancerCard = ({ freelancer }) => {
         <div className="freelancer-card">
             <div className="card-image-container">
                 <img
-                    src={freelancer.firstGigUrl || "/assets/Client.jpg"}
+                    src={freelancer.firstGigUrl || "/assets/images.png"}
                     alt="freelancer"
                     className="card-image"
                 />

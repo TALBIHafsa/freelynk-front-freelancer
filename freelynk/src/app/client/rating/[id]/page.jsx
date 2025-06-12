@@ -165,12 +165,12 @@ const RatingFreelancer = () => {
               onChange={handleCommentChange}
               className="comment-textarea"
               placeholder="Write your comment here..."
-              minLength={100}
+              minLength={20}
+              maxLength={255}
               required
             />
             <div className="character-count">
-              <span>min. 100 characters</span>
-              <span>{comment.length}/750</span>
+              <span>{comment.length}/255</span>
             </div>
           </div>
 
